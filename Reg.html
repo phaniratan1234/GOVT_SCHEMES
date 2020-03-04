@@ -1,0 +1,156 @@
+<html>
+<head>
+	<script type="text/javascript">
+    	function Validate() 
+	{	
+		var password = document.getElementById("txtPassword").value;
+		var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        		var len=document.getElementById("aadhno").value.length;
+		var moblen=document.getElementById("mob").value.length;
+		if (password != confirmPassword)
+		 {
+            			document.getElementById("txtConfirmPassword").focus();
+			alert("Passwords do not match.");
+			return false;
+		}
+		
+		if(len!=15)
+		{
+			document.getElementById("aadhno").focus();
+			alert("Invalid AadharNo.");
+			return false;
+		}
+		
+		if(moblen!=10)
+		{
+			document.getElementById("mob").focus();
+			alert("Invalid mobile No.");
+			return false;
+		}
+		         			
+			 return true;
+   	 }
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+function isalpha(e)
+{
+	if((e.charCode < 64 &&e.charCode > 91) || (e.charCode < 96 && e.charCode >123) )
+	{
+	return false;
+	}
+	return true;
+}
+
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td>
+			<img src="C:\\Phani1\\reg-img.jpg" height="300" width="1520">
+		</td>
+	</tr>
+	<tr><td style="border:1px solid black;background-color:black;color:white;"><h1 align="center">Scheme Registration Form</h1></td></tr></table>
+ <center> <table>  
+        <form name="f" action="" method="post" onsubmit="return confirm('Do you really want to submit the form?');">
+            
+<tr><td><b>Enter Name:</b> </td>
+	<td><input type="text" name="uname" placeholder="Enter Name" required onkeypress="return isalpha(event)">
+</td></tr> 
+
+<tr><td><b>Enter Aadhar no::</b> </td>
+	<td><input type="text" id="aadhno"  placeholder="Enter Aadhar No" onkeypress="return isNumber(event)">
+</td></tr>
+
+<tr><td><b>Gender:</b></td>
+	<td><input type="radio"name="gender" value="Male" Checked>Male<br>
+		<input type="radio"name="gender" value="Female">Female		
+</td></tr> 
+        
+<tr><td><b> Enter Mobile No:</b></td>
+	<td><input type="text" id="mob"  placeholder="Enter Mobile No" onkeypress="return isNumber(event)" >
+</td></tr>
+            
+<tr><td><b> Enter Email Id:</b></td>
+	<td><input type="text" id="email"  placeholder="Enter Email Id" onblur="validateEmail(this);">
+</td></tr>
+
+<tr><td> <b>Enter DateofBirth: </b></td>
+	<td><input type="date" name="dt" style="font-size: 1.2rem">
+</td></tr>
+
+<tr><td><b>Enter Password:</b> </td>
+	<td><input type="password" id="txtPassword" placeholder="Enter Password" required>
+</td></tr>
+            
+<tr><td><b>Confirm Password:</b> </td>
+	<td><input type="password" id="txtConfirmPassword" placeholder="Confirm Password" required>
+</td></tr>
+	 
+<tr><td> <b>Enter State:</b></td>
+	<td> <select name="states" placeholder="Select State" cols="35" required >
+		<option value="" selected disabled hidden>Selete State</option>
+  		<option value="Andhra Pradesh">Andhra Pradesh</option>
+  		<option value="Karnataka">Karnataka</option>
+  		<option value="Kerala">Kerala</option>
+ 		 <option value="Tamil Nadu">Tamil Nadu</option>
+		<option value="Maharashtra">Maharashtra</option>
+		<option value="Madhya pradesh">Madhya pradesh</option>
+		<option value="Orissa">Orissa</option>
+		<option value="Rajasthan">Rajasthan</option>
+		<option value="Gujarat">Gujarat</option>
+ 		<option value="Bihar">Bihar</option>
+	</select>
+</td></tr>       
+           
+ <tr><td> <b>Enter District: </b> </td>
+	<td><input type="text" name="dist" value="" placeholder="Enter District" required>
+</td></tr>
+
+ <tr><td> <b>Select Scheme: </b> </td>
+	<td> <select name="states" placeholder="Select Scheme" required>
+		<option value="" selected disabled hidden>Choose here</option>
+  		<option value="Swachh Bharat Abhiyan">Swachh Bharat Abhiyan</option>
+  		<option value="Rashtriya Swasthya Bima yojna">Rashtriya Swasthya Bima yojna</option>
+  		<option value="Pradhan Mantri Jeevan Jyoti Bima Yojana">Pradhan Mantri Jeevan Jyoti Bima Yojana</option>
+ 		<option value="Antyodaya Anna Yojana">Antyodaya Anna Yojana</option>
+		<option value="Mid day meal scheme">Mid day meal scheme</option>
+		<option value="Deen Dayal Antyodaya Yojana">Deen Dayal Antyodaya Yojana</option>
+		<option value="Rajiv Gandhi Jeevandayee Arogya Yojana">Rajiv Gandhi Jeevandayee Arogya Yojana</option>
+                <option value="Swarnajayanti Gram Swarojgar Yojana">Swarnajayanti Gram Swarojgar Yojana</option>
+                <option value="Pradhan Mantri Bhartiya Jan Aushadhi PariYojana">Pradhan Mantri Bhartiya Jan Aushadhi PariYojana</option>
+		<option value="UDAN">UDAN</option>
+		<option value="Sansad Adarsh Gram Yojana">Sansad Adarsh Gram Yojana</option>
+		<option value="Atal Pension Yojana">Atal Pension Yojana</option>
+	</select>
+</td></tr>
+
+          </table>
+        
+<br><br> <input type="submit" value="Submit" onclick="return Validate()">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="reset" value="Reset" >
+        </form>
+	
+    </center>
+    </body>
+</html>
+</body>
